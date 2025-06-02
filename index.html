@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krish Sharma | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            --text-color: #e6edf3;
+            --accent-color: #4e9eff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --btn-glow: rgba(78, 158, 255, 0.9);
+        }
+
+        [data-theme="light"] {
+            --bg-color: linear-gradient(to bottom right, #ffffff 28%, #9999ff 86%);
+            --text-color: #111;
+            --card-bg: #fff;
+            --btn-glow: rgba(78, 158, 255, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            padding: 2rem;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+
+        .toggle-theme:hover {
+            background-color: var(--btn-glow);
+            box-shadow: 0 0 10px var(--btn-glow);
+            transform: scale(1.05);
+        }
+
+        .toggle-theme .icon {
+            display: inline-block;
+            transition: transform 0.4s ease;
+            font-size: 1.2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .landing {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 3rem auto;
+            max-width: 1100px;
+            gap: 2rem;
+            height: 80vh;
+        }
+
+        .intro-text {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 22rem;
+        }
+
+        .typing {}
+
+        .intro-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text p {
+            font-size: 1.1rem;
+        }
+
+        .floating-imgs {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 18rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .icon-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+
+        @media only screen and (max-width:450px) {
+            .floating-imgs {
+                flex-direction: row;
+            }
+
+            .floating-imgs img {
+                width: 100px;
+            }
+        }
+
+        .floating-imgs img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px var(--btn-glow));
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        section {
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-skills h2,
+        .projects h2,
+        .contact h2,
+        .about h2 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .skills-grid,
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill,
+        .project-card {
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .skill:hover,
+        .project-card:hover {
+            box-shadow: 0 0 10px var(--btn-glow);
+            transform: translateY(-2px);
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: none;
+            background: #f1f1f1;
+            color: #111;
+        }
+
+        .contact button {
+            padding: 0.75rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .contact button:hover {
+            box-shadow: 0 0 10px var(--btn-glow);
+        }
+
+        .name {
+            color: rgb(156, 92, 240);
+        }
+
+        .typing {
+            margin-top: 2rem;
+            color: rgb(156, 92, 240);
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scroll-fade.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .project-info {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .project-card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--btn-glow);
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: 10;
+            /* makes hovered card above others */
+        }
+
+        .project-card:hover .project-info {
+            max-height: 150px;
+            opacity: 1;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            color: #9ba3ad;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: 0.3s ease;
+            border: 2px solid #f7f3ff;
+        }
+
+        .social-btn:hover {
+            background-color: rgb(156, 92, 240);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px var(--btn-glow);
+        }
+
+        .cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1000;
+            mix-blend-mode: overlay;
+        }
+
+        .cursor-glow::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(78, 158, 255, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            filter: blur(30px);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Krish Sharma</h1>
+        <button class="toggle-theme" onclick="toggleTheme()">
+            <span class="icon">🌙</span>
+            <span class="label">Switch to Light Mode</span>
+        </button>
+    </header>
+
+    <div class="landing">
+        <div class="intro-text">
+            <h2>Welcome!</h2>
+            <h2>I'm <span class="name">Krish sharma</span></h2>
+            <p> a passionate web developer and BTech CSE student (AI/ML
+                specialization). I build responsive websites, modern web apps, and AI-powered projects. Explore my
+                skills and projects below.</p>
+            <h2 class="typing"><span id="element"></span></h2>
+            <div class="social-buttons">
+                <a href="https://github.com/Onlykrshnna" target="_blank" class="social-btn"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/krish-sharma-dev/" target="_blank" class="social-btn"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/YOUR_USERNAME" target="_blank" class="social-btn"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+
+        </div>
+        <div class="floating-imgs">
+            <div class="icon-row">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+            </div>
+            <div class="icon-row">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
+            </div>
+            <div class="icon-row">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                    alt="C++" />
+            </div>
+        </div>
+
+    </div>
+
+    <section class="about scroll-fade">
+        <h2>About Me</h2>
+        <p>I have a strong interest in technology, especially web development and artificial intelligence. I’ve
+            completed certifications in full stack development and C/C++, and I love bringing ideas to life through
+            code. In my free time, I explore tech trends and build personal projects to sharpen my skills.</p>
+    </section>
+
+    <section class="tech-skills scroll-fade">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">C / C++</div>
+            <div class="skill">Arduino</div>
+            <div class="skill">Git & GitHub</div>
+            <div class="skill">React (learning)</div>
+            <div class="skill">Python (basic)</div>
+        </div>
+    </section>
+
+    <section class="projects scroll-fade">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p class="project-info">A responsive personal website with dark/light mode and animations.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Tic Tac Toe with AI</h3>
+                <p class="project-info">A fun game using JavaScript with AI that plays randomly.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Smart Train Locking System</h3>
+                <p class="project-info">Arduino-based train security system with GPS + SMS alerts.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact scroll-fade">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['<i>Web Developer.</i>', 'C/C++ Programmer','Arduino Hobbyist',"AI & ML Enthusiast",'<i>Web Designer.</i>', '<i>Video Editor.</i>'],
+            typeSpeed: 50,
+        });
+        function toggleTheme() {
+            const root = document.documentElement;
+            const currentTheme = root.getAttribute('data-theme');
+            const isLight = currentTheme === 'light';
+            const newTheme = isLight ? 'dark' : 'light';
+
+            root.setAttribute('data-theme', newTheme);
+
+            const button = document.querySelector('.toggle-theme');
+            const icon = button.querySelector('.icon');
+            const label = button.querySelector('.label');
+
+            // Rotate icon
+            icon.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                icon.style.transform = 'rotate(0deg)';
+            }, 400);
+
+            // Update icon and label
+            icon.textContent = isLight ? '🌙' : '☀️';
+            label.textContent = isLight ? 'Light Mode' : 'Dark Mode';
+        }
+
+        // Set initial state
+        document.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            const button = document.querySelector('.toggle-theme');
+            button.querySelector('.icon').textContent = '🌙';
+            button.querySelector('.label').textContent = 'Light Mode';
+        });
+        // Scroll animation
+        const fadeEls = document.querySelectorAll('.scroll-fade');
+
+        const scrollFadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.1,
+        });
+
+        fadeEls.forEach(el => {
+            scrollFadeObserver.observe(el);
+        });
+        const glowSpot = document.getElementById('glow-spot');
+
+        document.addEventListener('mousemove', (e) => {
+            glowSpot.style.left = `${e.clientX}px`;
+            glowSpot.style.top = `${e.clientY}px`;
+        });
+
+
+    </script>
+    <div class="cursor-glow">
+        <div id="glow-spot"></div>
+    </div>
+
+
+</body>
+
+</html> 
